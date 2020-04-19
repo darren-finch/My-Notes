@@ -9,22 +9,25 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.all.mynotes.MainActivity
-import com.all.mynotes.NotesViewModel
+//SECTION 5
+//import com.all.mynotes.NotesViewModel
+//import com.all.mynotes.data.NoteModel
 import com.all.mynotes.R
-import com.all.mynotes.data.NoteModel
 import com.all.mynotes.helpers.DependencyInjector
 import com.google.android.material.textfield.TextInputEditText
 
 class AddEditNoteFragment : Fragment()
 {
-    private lateinit var notesViewModel: NotesViewModel
+//SECTION 5
+//    private lateinit var notesViewModel: NotesViewModel
 
     private lateinit var noteTitleEditText: TextInputEditText
     private lateinit var noteDescriptionEditText: TextInputEditText
     private lateinit var notePriorityEditText: TextInputEditText
 
     private var noteKey = "" //This shouldn't change even though its a var
-    private lateinit var noteData: NoteModel
+//SECTION 5
+//    private lateinit var noteData: NoteModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
@@ -39,21 +42,22 @@ class AddEditNoteFragment : Fragment()
     override fun onActivityCreated(savedInstanceState: Bundle?)
     {
         super.onActivityCreated(savedInstanceState)
-        notesViewModel = ViewModelProvider(requireActivity(), DependencyInjector.provideNoteViewModelFactory()).get(NotesViewModel::class.java)
-
-        if(noteKey.isNotEmpty())
-        {
-            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Edit Note"
-            notesViewModel.getNote(noteKey).observe(viewLifecycleOwner, Observer { data ->
-                noteData = data
-                initUIData()
-            })
-        }
-        else
-        {
-            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Add Note"
-            noteData = NoteModel()
-        }
+//SECTION 5
+//        notesViewModel = ViewModelProvider(requireActivity(), DependencyInjector.provideNoteViewModelFactory()).get(NotesViewModel::class.java)
+//
+//        if(noteKey.isNotEmpty())
+//        {
+//            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Edit Note"
+//            notesViewModel.getNote(noteKey).observe(viewLifecycleOwner, Observer { data ->
+//                noteData = data
+//                initUIData()
+//            })
+//        }
+//        else
+//        {
+//            (requireActivity() as AppCompatActivity).supportActionBar?.title = "Add Note"
+//            noteData = NoteModel()
+//        }
 
         initUI()
     }
@@ -64,12 +68,13 @@ class AddEditNoteFragment : Fragment()
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean
     {
-        when (item.itemId)
-        {
-            R.id.saveButton -> if (noteKey.isEmpty()) insertNote() else updateNote()
-            R.id.deleteButton -> deleteNote()
-        }
-        navigateToAllNotesFragment()
+//SECTION 5
+//        when (item.itemId)
+//        {
+//            R.id.saveButton -> if (noteKey.isEmpty()) insertNote() else updateNote()
+//            R.id.deleteButton -> deleteNote()
+//        }
+//        navigateToAllNotesFragment()
         return false
     }
     private fun initUI()
@@ -80,34 +85,36 @@ class AddEditNoteFragment : Fragment()
     }
     private fun initUIData()
     {
-        noteTitleEditText.setText(noteData.title)
-        noteDescriptionEditText.setText(noteData.description)
-        notePriorityEditText.setText(noteData.priority.toString())
+//SECTION 5
+//        noteTitleEditText.setText(noteData.title)
+//        noteDescriptionEditText.setText(noteData.description)
+//        notePriorityEditText.setText(noteData.priority.toString())
     }
     private fun setNoteKey(noteKey: String)
     {
         this.noteKey = noteKey
     }
-    private fun saveNoteData()
-    {
-        noteData.title = noteTitleEditText.text.toString()
-        noteData.description = noteDescriptionEditText.text.toString()
-        noteData.priority = notePriorityEditText.text.toString().toInt()
-    }
-    private fun insertNote()
-    {
-        saveNoteData()
-        notesViewModel.insertNote(noteData)
-    }
-    private fun updateNote()
-    {
-        saveNoteData()
-        notesViewModel.updateNote(noteData)
-    }
-    private fun deleteNote()
-    {
-        notesViewModel.deleteNote(noteData.key)
-    }
+//SECTION 5
+//    private fun saveNoteData()
+//    {
+//        noteData.title = noteTitleEditText.text.toString()
+//        noteData.description = noteDescriptionEditText.text.toString()
+//        noteData.priority = notePriorityEditText.text.toString().toInt()
+//    }
+//    private fun insertNote()
+//    {
+//        saveNoteData()
+//        notesViewModel.insertNote(noteData)
+//    }
+//    private fun updateNote()
+//    {
+//        saveNoteData()
+//        notesViewModel.updateNote(noteData)
+//    }
+//    private fun deleteNote()
+//    {
+//        notesViewModel.deleteNote(noteData.key)
+//    }
     private fun navigateToAllNotesFragment()
     {
         requireActivity().supportFragmentManager

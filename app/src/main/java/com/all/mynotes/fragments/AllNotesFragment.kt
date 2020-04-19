@@ -10,10 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.all.mynotes.MainActivity
-import com.all.mynotes.NotesViewModel
+//import com.all.mynotes.NotesViewModel
 
 import com.all.mynotes.R
-import com.all.mynotes.data.NoteModel
+//SECTION 5
+//import com.all.mynotes.data.NoteModel
 import com.all.mynotes.helpers.DependencyInjector
 import com.all.mynotes.recyclerviews.MarginItemDecoration
 import com.all.mynotes.recyclerviews.NotesRecyclerViewAdapter
@@ -22,7 +23,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class AllNotesFragment : Fragment()
 {
-    private lateinit var notesViewModel: NotesViewModel
+//SECTION 5
+//    private lateinit var notesViewModel: NotesViewModel
 
     private lateinit var notesRecyclerView: RecyclerView
     private lateinit var notesRecyclerViewAdapter: NotesRecyclerViewAdapter
@@ -44,11 +46,11 @@ class AllNotesFragment : Fragment()
     override fun onActivityCreated(savedInstanceState: Bundle?)
     {
         super.onActivityCreated(savedInstanceState)
-
-        notesViewModel = ViewModelProvider(requireActivity(), DependencyInjector.provideNoteViewModelFactory()).get(NotesViewModel::class.java)
-        notesViewModel.getNotes().observe(viewLifecycleOwner, Observer { notes ->
-            notesRecyclerViewAdapter.updateNotes(notes)
-        })
+//SECTION 5
+//        notesViewModel = ViewModelProvider(requireActivity(), DependencyInjector.provideNoteViewModelFactory()).get(NotesViewModel::class.java)
+//        notesViewModel.getNotes().observe(viewLifecycleOwner, Observer { notes ->
+//            notesRecyclerViewAdapter.updateNotes(notes)
+//        })
 
         val addNewNoteFab: FloatingActionButton = requireView().findViewById(R.id.addNewNote)
         addNewNoteFab.setOnClickListener{
