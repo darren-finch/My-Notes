@@ -12,8 +12,8 @@ import com.all.mynotes.MainActivity
 //SECTION 5
 //import com.all.mynotes.NotesViewModel
 //import com.all.mynotes.data.NoteModel
+//import com.all.mynotes.helpers.DependencyInjector
 import com.all.mynotes.R
-import com.all.mynotes.helpers.DependencyInjector
 import com.google.android.material.textfield.TextInputEditText
 
 class AddEditNoteFragment : Fragment()

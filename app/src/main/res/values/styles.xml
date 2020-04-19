@@ -11,7 +11,7 @@
     </style>
 
     <style name="Theme.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.FilledBox.Dense">
-        <item name="boxBackgroundColor">@color/colorSecondary</item>
+        <item name="boxBackgroundColor">@color/colorPrimary</item>
         <item name="boxCornerRadiusTopStart">8dp</item>
         <item name="boxCornerRadiusTopEnd">8dp</item>
     </style>
