@@ -15,7 +15,7 @@ class AddEditNoteFragment : Fragment()
     private lateinit var noteDescriptionEditText: TextInputEditText
     private lateinit var notePriorityEditText: TextInputEditText
 
-    private var noteKey = "" //This shouldn't change even though its a var
+    private var noteKey = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View?
     {
